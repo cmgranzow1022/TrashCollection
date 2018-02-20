@@ -22,9 +22,18 @@ namespace TrashCollection.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Have Questions? Please contact us!";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            //TODO : send message to HQ
+            ViewBag.Message = "Your message has been received. We will get back to you within 48 hours.";
+
+                return View();
         }
     }
 }

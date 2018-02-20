@@ -1,10 +1,12 @@
 namespace TrashCollection.Migrations.TCMigrations
 {
     using Data;
+    using Models.TrashCollector;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TrashCollection.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TrashCollection.Models.ApplicationDbContext>
     {
@@ -29,14 +31,16 @@ namespace TrashCollection.Migrations.TCMigrations
             //    );
             //
 
-            
+
+
             context.Addresses.AddOrUpdate(
-                p => new { p.Street, p.City, p.State }, DummyData.getAddress(context).ToArray());
-                context.SaveChanges();
+                t => t.AddressId, DummyData.getAddress(context).ToArray());
+            context.SaveChanges();
 
             context.Customers.AddOrUpdate(
-            t => t.CustomerId, DummyData.getCustomers().ToArray());
-
+                p => new { p.FirstName, p.LastName }, DummyData.getCustomers().ToArray());
         }
+
     }
-}
+    }
+
