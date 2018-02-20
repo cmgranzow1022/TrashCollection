@@ -1,6 +1,8 @@
 namespace TrashCollection.Migrations.TCMigrations
 {
     using Data;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models.TrashCollector;
     using System;
     using System.Data.Entity;
@@ -18,41 +20,74 @@ namespace TrashCollection.Migrations.TCMigrations
 
         protected override void Seed(TrashCollection.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
 
             Address[] addresses = DummyData.getAddress().ToArray();
 
-            for(int i = 0; i < addresses.Length; i++)
+            for (int i = 0; i < addresses.Length; i++)
             {
                 context.Addresses.AddOrUpdate(addresses[i]);
                 context.SaveChanges();
             }
-               
+
             Customer[] customers = DummyData.getCustomers(context).ToArray();
-            for(int i = 0; i < customers.Length; i++)
+            for (int i = 0; i < customers.Length; i++)
             {
                 context.Customers.AddOrUpdate(customers[i]);
                 context.SaveChanges();
             }
-            //context.Addresses.AddOrUpdate(
-            //    t => t.Street, DummyData.getAddress().ToArray());
-            //context.SaveChanges();
 
-            //context.Customers.AddOrUpdate(
-            //    p => new { p.FirstName, p.LastName }, DummyData.getCustomers(context).ToArray());
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                if (!roleManager.RoleExists("Admin"))
+                    roleManager.Create(new IdentityRole("Admin"));
+
+                if (!roleManager.RoleExists("Guest"))
+                    roleManager.Create(new IdentityRole("Guest"));
+
+
+                if (!roleManager.RoleExists("Employee"))
+                    roleManager.Create(new IdentityRole("Employee"));
+
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                if (userManager.FindByEmail("a@a.com") == null)
+                {
+                    var user = new ApplicationUser
+                    {
+                        Email = "a@a.com",
+                        UserName = "a@a.com",
+                    };
+                    var result = userManager.Create(user, "Password");
+                    if (result.Succeeded)
+                        userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Admin");
+                }
+                if (userManager.FindByEmail("g@g.com") == null)
+                {
+                    var user = new ApplicationUser
+                    {
+                        Email = "g@g.com",
+                        UserName = "g@g.com",
+                    };
+                    var result = userManager.Create(user, "Password");
+                    if (result.Succeeded)
+                        userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Guest");
+                }
+                if (userManager.FindByEmail("e@e.com") == null)
+                {
+                    var user = new ApplicationUser
+                    {
+                        Email = "e@e.com",
+                        UserName = "e@e.com",
+                    };
+                    var result = userManager.Create(user, "Password");
+                    if (result.Succeeded)
+                        userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Employee");
+                }
+
+            }
         }
-
     }
-}
+
+
+
+
 

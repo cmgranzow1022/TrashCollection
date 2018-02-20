@@ -65,32 +65,33 @@ namespace TrashCollection.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "First Name*")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
         
         [Required]
-        [Display(Name = "Last Name*")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Street Address*")]
+        [Display(Name = "Street Address")]
         public string Street { get; set; }
 
         [Required]
-        [Display(Name = "City*")]
+        [Display(Name = "City")]
         public string City { get; set; }
 
         [Required]
-        [Display(Name = "State*")]
+        [Display(Name = "State")]
         public string State { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
-        [Display(Name = "Zip Code*")]
+        [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
         [Required]
-        [Display(Name = "Requested Pick-Up Day*")]
+        [Display(Name = "Desired Pick-Up Day")]
+//{       [Drop]
         public string PickUpDay { get; set; }
 
         [Required]
@@ -100,24 +101,24 @@ namespace TrashCollection.Models
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Email*")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Confirm Email*")]
-        [Compare("Email*", ErrorMessage = "The email and confirmation email do not match.")]
+        [Display(Name = "Confirm Email")]
+        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
         public string ConfirmEmail { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password*")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password*")]
-        [Compare("Password*", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
