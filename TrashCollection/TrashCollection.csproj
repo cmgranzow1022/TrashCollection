@@ -202,13 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\TCMigrations\201802192022268_InitialCreate.cs" />
-    <Compile Include="Migrations\TCMigrations\201802192022268_InitialCreate.Designer.cs">
-      <DependentUpon>201802192022268_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TCMigrations\201802192123588_UpdatedDataTypes.cs" />
-    <Compile Include="Migrations\TCMigrations\201802192123588_UpdatedDataTypes.Designer.cs">
-      <DependentUpon>201802192123588_UpdatedDataTypes.cs</DependentUpon>
+    <Compile Include="Migrations\TCMigrations\201802201733043_add data.cs" />
+    <Compile Include="Migrations\TCMigrations\201802201733043_add data.Designer.cs">
+      <DependentUpon>201802201733043_add data.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -284,7 +280,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -294,11 +289,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802192022268_InitialCreate.resx">
-      <DependentUpon>201802192022268_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802192123588_UpdatedDataTypes.resx">
-      <DependentUpon>201802192123588_UpdatedDataTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802201733043_add data.resx">
+      <DependentUpon>201802201733043_add data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

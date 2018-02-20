@@ -102,9 +102,11 @@ namespace TrashCollection.Models
         [EmailAddress]
         [Display(Name = "Email*")]
         public string Email { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Confirm Email*")]
+        [Compare("Email*", ErrorMessage = "The email and confirmation email do not match.")]
         public string ConfirmEmail { get; set; }
 
         [Required]
@@ -115,7 +117,7 @@ namespace TrashCollection.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password*")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password*", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 

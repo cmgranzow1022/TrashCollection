@@ -10,12 +10,13 @@ namespace TrashCollection.Data
     public class DummyData
     {
 
-        public static List<Customer> getCustomers()
+        public static List<Customer> getCustomers(ApplicationDbContext context)
         {
             List<Customer> customers = new List<Customer>()
             {
             new Customer()
             {
+                CustomerId = 1,
                 FirstName = "Christine",
                 LastName= "Granzow",
                 PhoneNumber= "414-456-7890",
@@ -23,6 +24,7 @@ namespace TrashCollection.Data
             },
             new Customer()
             {
+                CustomerId = 2,
                 FirstName = "Katie",
                 LastName= "Steingraber",
                 PhoneNumber= "414-234-2345",
@@ -30,6 +32,7 @@ namespace TrashCollection.Data
             },
             new Customer()
             {
+                CustomerId = 3,
                 FirstName = "Richard",
                 LastName= "Hintz",
                 PhoneNumber= "262-456-6544",
@@ -39,13 +42,13 @@ namespace TrashCollection.Data
             return customers;
         }
 
-        public static List<Address> getAddress(ApplicationDbContext context)
+        public static List<Address> getAddress()
         {
             List<Address> addresses = new List<Address>()
             {
                 new Address
                 {
-
+                    AddressId = 1,
                     Street = "1022 S 121st St",
                     City = "West Allis",
                     State = "WI",
@@ -53,7 +56,7 @@ namespace TrashCollection.Data
                 },
                 new Address
                 {
- 
+                    AddressId = 2,
                     Street = "W5551 Colin St",
                     City = "Appleton",
                     State = "WI",
@@ -61,7 +64,7 @@ namespace TrashCollection.Data
                 },
                 new Address
                 {
-
+                    AddressId = 3,
                     Street = "2835 S Tammy Ln",
                     City = "New Berlin",
                     State = "WI",

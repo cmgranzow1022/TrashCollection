@@ -17,7 +17,13 @@ namespace TrashCollection.Models.TrashCollector
         public int AddressId { get; set; }
         public Address Address { get; set; }
 
-
-
+        public string Name
+        {
+            get
+            {
+                return string.Format("{0} {1}", this.FirstName, this.LastName);
+            }
+        }
+        
     }
 }

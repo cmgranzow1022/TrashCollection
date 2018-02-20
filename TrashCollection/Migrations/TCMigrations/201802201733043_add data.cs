@@ -3,7 +3,7 @@ namespace TrashCollection.Migrations.TCMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class adddata : DbMigration
     {
         public override void Up()
         {
@@ -27,12 +27,11 @@ namespace TrashCollection.Migrations.TCMigrations
                         FirstName = c.String(),
                         LastName = c.String(),
                         PhoneNumber = c.String(),
-                        AddressId = c.String(),
-                        Address_AddressId = c.Int(),
+                        AddressId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CustomerId)
-                .ForeignKey("dbo.Addresses", t => t.Address_AddressId)
-                .Index(t => t.Address_AddressId);
+                .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
+                .Index(t => t.AddressId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -110,14 +109,14 @@ namespace TrashCollection.Migrations.TCMigrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Customers", "Address_AddressId", "dbo.Addresses");
+            DropForeignKey("dbo.Customers", "AddressId", "dbo.Addresses");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Customers", new[] { "Address_AddressId" });
+            DropIndex("dbo.Customers", new[] { "AddressId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");

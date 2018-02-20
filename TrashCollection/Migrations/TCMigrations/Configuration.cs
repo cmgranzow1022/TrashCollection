@@ -31,16 +31,28 @@ namespace TrashCollection.Migrations.TCMigrations
             //    );
             //
 
+            Address[] addresses = DummyData.getAddress().ToArray();
 
+            for(int i = 0; i < addresses.Length; i++)
+            {
+                context.Addresses.AddOrUpdate(addresses[i]);
+                context.SaveChanges();
+            }
+               
+            Customer[] customers = DummyData.getCustomers(context).ToArray();
+            for(int i = 0; i < customers.Length; i++)
+            {
+                context.Customers.AddOrUpdate(customers[i]);
+                context.SaveChanges();
+            }
+            //context.Addresses.AddOrUpdate(
+            //    t => t.Street, DummyData.getAddress().ToArray());
+            //context.SaveChanges();
 
-            context.Addresses.AddOrUpdate(
-                t => t.AddressId, DummyData.getAddress(context).ToArray());
-            context.SaveChanges();
-
-            context.Customers.AddOrUpdate(
-                p => new { p.FirstName, p.LastName }, DummyData.getCustomers().ToArray());
+            //context.Customers.AddOrUpdate(
+            //    p => new { p.FirstName, p.LastName }, DummyData.getCustomers(context).ToArray());
         }
 
     }
-    }
+}
 
