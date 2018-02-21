@@ -204,13 +204,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\TCMigrations\201802201733043_add data.cs" />
-    <Compile Include="Migrations\TCMigrations\201802201733043_add data.Designer.cs">
-      <DependentUpon>201802201733043_add data.cs</DependentUpon>
+    <Compile Include="Migrations\TCMigrations\201802211358213_test.cs" />
+    <Compile Include="Migrations\TCMigrations\201802211358213_test.Designer.cs">
+      <DependentUpon>201802211358213_test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\TCMigrations\201802202149490_Seeding user data.cs" />
-    <Compile Include="Migrations\TCMigrations\201802202149490_Seeding user data.Designer.cs">
-      <DependentUpon>201802202149490_Seeding user data.cs</DependentUpon>
+    <Compile Include="Migrations\TCMigrations\201802211710542_addColumns.cs" />
+    <Compile Include="Migrations\TCMigrations\201802211710542_addColumns.Designer.cs">
+      <DependentUpon>201802211710542_addColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\TCMigrations\201802211951534_added userId.cs" />
+    <Compile Include="Migrations\TCMigrations\201802211951534_added userId.Designer.cs">
+      <DependentUpon>201802211951534_added userId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\TCMigrations\201802212012241_zip changed to string.cs" />
+    <Compile Include="Migrations\TCMigrations\201802212012241_zip changed to string.Designer.cs">
+      <DependentUpon>201802212012241_zip changed to string.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -295,6 +303,7 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -304,12 +313,19 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802201733043_add data.resx">
-      <DependentUpon>201802201733043_add data.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802211358213_test.resx">
+      <DependentUpon>201802211358213_test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802202149490_Seeding user data.resx">
-      <DependentUpon>201802202149490_Seeding user data.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802211710542_addColumns.resx">
+      <DependentUpon>201802211710542_addColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802211951534_added userId.resx">
+      <DependentUpon>201802211951534_added userId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802212012241_zip changed to string.resx">
+      <DependentUpon>201802212012241_zip changed to string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

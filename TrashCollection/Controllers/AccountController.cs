@@ -9,12 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TrashCollection.Models;
+using TrashCollection.Models.TrashCollector;
+using TrashCollection.Controllers;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TrashCollection.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -167,10 +171,72 @@ namespace TrashCollection.Controllers
                 }
                 AddErrors(result);
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
+
+        // POST: /Account/Profile
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Profile(ProfileViewModel model)
+        {
+            //if (ModelState.IsValid)
+            //{
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var result = await UserManager.CreateAsync(user, model.Password);
+
+                var customer = new Customer { FirstName = model.FirstName, LastName = model.LastName, PhoneNumber = model.PhoneNumber, PickUpDay = model.PickUpDay };
+                var custAddress = new Address { Street = model.Street, City = model.City, State = model.State, ZipCode = model.ZipCode };
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                //if (result.Succeeded)
+                //{
+                //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    db.Customers.Add(customer);
+                    db.Addresses.Add(custAddress);
+                    //userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Guest");
+                    db.SaveChanges();
+
+                //    return RedirectToAction("Index", "Home");
+                //}
+                //AddErrors(result);
+            //}
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //
         // GET: /Account/ConfirmEmail

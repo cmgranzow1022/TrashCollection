@@ -3,7 +3,7 @@ namespace TrashCollection.Migrations.TCMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class adddata : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
@@ -27,6 +27,8 @@ namespace TrashCollection.Migrations.TCMigrations
                         FirstName = c.String(),
                         LastName = c.String(),
                         PhoneNumber = c.String(),
+                        EmailAddress = c.String(),
+                        PickUpDay = c.String(),
                         AddressId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CustomerId)

@@ -52,7 +52,7 @@ namespace TrashCollection.Data
                     Street = "1022 S 121st St",
                     City = "West Allis",
                     State = "WI",
-                    ZipCode = 53214,
+                    ZipCode = "53214",
                 },
                 new Address
                 {
@@ -60,7 +60,7 @@ namespace TrashCollection.Data
                     Street = "W5551 Colin St",
                     City = "Appleton",
                     State = "WI",
-                    ZipCode = 54915,
+                    ZipCode = "54915",
                 },
                 new Address
                 {
@@ -68,7 +68,7 @@ namespace TrashCollection.Data
                     Street = "2835 S Tammy Ln",
                     City = "New Berlin",
                     State = "WI",
-                    ZipCode = 53151,
+                    ZipCode = "53151",
                 },
               };
             return addresses;

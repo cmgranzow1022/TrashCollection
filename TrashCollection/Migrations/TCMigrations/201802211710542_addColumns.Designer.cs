@@ -7,13 +7,13 @@ namespace TrashCollection.Migrations.TCMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Seedinguserdata : IMigrationMetadata
+    public sealed partial class addColumns : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Seedinguserdata));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addColumns));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802202149490_Seeding user data"; }
+            get { return "201802211710542_addColumns"; }
         }
         
         string IMigrationMetadata.Source

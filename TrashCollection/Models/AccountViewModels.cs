@@ -65,50 +65,9 @@ namespace TrashCollection.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        
-        [Required]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Street Address")]
-        public string Street { get; set; }
-
-        [Required]
-        [Display(Name = "City")]
-        public string City { get; set; }
-
-        [Required]
-        [Display(Name = "State")]
-        public string State { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
-        [Display(Name = "Zip Code")]
-        public string ZipCode { get; set; }
-
-        [Required]
-        [Display(Name = "Desired Pick-Up Day")]
-//{       [Drop]
-        public string PickUpDay { get; set; }
-
-        [Required]
-        [Phone]
-        [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
-
-        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Confirm Email")]
-        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
-        public string ConfirmEmail { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -149,5 +108,43 @@ namespace TrashCollection.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class ProfileViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Street Address")]
+        public string Street { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+
+        [Required]
+        [Display(Name = "Desired Pick-Up Day")]
+        public string PickUpDay { get; set; }
+
+        [Required]
+        [Phone]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
     }
 }

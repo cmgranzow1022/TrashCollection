@@ -27,6 +27,7 @@ namespace TrashCollection.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Contact(string message)
         {
@@ -34,6 +35,13 @@ namespace TrashCollection.Controllers
             ViewBag.Message = "Your message has been received. We will get back to you within 48 hours.";
 
                 return View();
+        }
+
+        public ActionResult Profile()
+        {
+            ViewBag.Message = "Profile Information";
+
+            return View();
         }
     }
 }
