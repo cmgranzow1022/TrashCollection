@@ -7,116 +7,116 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollection.Models;
-using TrashCollection.Models.TrashCollector;
 
 namespace TrashCollection.Controllers
 {
-    public class AddressesController : Controller
+    public class RouteViewController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Addresses
+        // GET: RouteView
         public ActionResult Index()
         {
-            return View(db.Addresses.ToList());
+            var routeViewModels = db.RouteViewModels.Include(r => r.Customer);
+            return View(routeViewModels.ToList());
         }
 
-        public ActionResult DailyRoute()
-        {
-            return View();
-        }
-
-        // GET: Addresses/Details/5
+        // GET: RouteView/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Address address = db.Addresses.Find(id);
-            if (address == null)
+            RouteViewModel routeViewModel = db.RouteViewModels.Find(id);
+            if (routeViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(address);
+            return View(routeViewModel);
         }
 
-        // GET: Addresses/Create
+        // GET: RouteView/Create
         public ActionResult Create()
         {
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName");
+            //ViewBag.Employeeid = new SelectList(db.Employee, "EmployeeId", FirstName);
             return View();
         }
 
-        // POST: Addresses/Create
+        // POST: RouteView/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AddressId,Street,City,State,ZipCode")] Address address)
+        public ActionResult Create([Bind(Include = "id,Customerid,Employeeid")] RouteViewModel routeViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Addresses.Add(address);
+                db.RouteViewModels.Add(routeViewModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(address);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            return View(routeViewModel);
         }
 
-        // GET: Addresses/Edit/5
+        // GET: RouteView/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Address address = db.Addresses.Find(id);
-            if (address == null)
+            RouteViewModel routeViewModel = db.RouteViewModels.Find(id);
+            if (routeViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(address);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            return View(routeViewModel);
         }
 
-        // POST: Addresses/Edit/5
+        // POST: RouteView/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AddressId,Street,City,State,ZipCode")] Address address)
+        public ActionResult Edit([Bind(Include = "id,Customerid,Employeeid")] RouteViewModel routeViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(address).State = EntityState.Modified;
+                db.Entry(routeViewModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(address);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            return View(routeViewModel);
         }
 
-        // GET: Addresses/Delete/5
+        // GET: RouteView/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Address address = db.Addresses.Find(id);
-            if (address == null)
+            RouteViewModel routeViewModel = db.RouteViewModels.Find(id);
+            if (routeViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(address);
+            return View(routeViewModel);
         }
 
-        // POST: Addresses/Delete/5
+        // POST: RouteView/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Address address = db.Addresses.Find(id);
-            db.Addresses.Remove(address);
+            RouteViewModel routeViewModel = db.RouteViewModels.Find(id);
+            db.RouteViewModels.Remove(routeViewModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RouteViewController.cs" />
     <Compile Include="Data\DummyData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,10 +221,15 @@
     <Compile Include="Migrations\TCMigrations\201802212012241_zip changed to string.Designer.cs">
       <DependentUpon>201802212012241_zip changed to string.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\TCMigrations\201802222322502_test1.cs" />
+    <Compile Include="Migrations\TCMigrations\201802222322502_test1.Designer.cs">
+      <DependentUpon>201802222322502_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TrashCollector\RouteViewModel.cs" />
     <Compile Include="Models\TrashCollector\Address.cs" />
     <Compile Include="Models\TrashCollector\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -272,7 +278,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -303,9 +308,13 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
-    <Content Include="Views\Account\Profile.cshtml" />
-    <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Home\DailyRoute.cshtml" />
+    <Content Include="Views\Addresses\DailyRoute.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RouteView\Create.cshtml" />
+    <Content Include="Views\RouteView\Delete.cshtml" />
+    <Content Include="Views\RouteView\Details.cshtml" />
+    <Content Include="Views\RouteView\Edit.cshtml" />
+    <Content Include="Views\RouteView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -328,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\TCMigrations\201802212012241_zip changed to string.resx">
       <DependentUpon>201802212012241_zip changed to string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802222322502_test1.resx">
+      <DependentUpon>201802222322502_test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

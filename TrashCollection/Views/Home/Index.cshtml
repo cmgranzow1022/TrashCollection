@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
 }
 
 <div class="jumbotron">
@@ -11,19 +12,48 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Account Balance</h2>
-        <p>
-            View and pay monthly trash collection invoice.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>
+                You can view and pay monthly trash collection invoice. You can select a one time payment or a monthly automatic payment plan with a registered account.
+            </p>
+        }
+     
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>
+                View and pay monthly trash collection invoice. Select one-time payment or auto-pay.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        }
+
     </div>
     <div class="col-md-4">
-        <h2>Change Pick-up Date</h2>
-        <p>Change the day of the week for scheduled pick-up.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Change Pick-up Day</h2>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>Routines can change. If you realize that Tuesday works better than Thursday, just login to change the day of the week for scheduled trash pick-up.</p>
+        }
+        @if (User.Identity.IsAuthenticated)
+        {     
+            <p>Update the day of the week for scheduled trash pick-up.</p>
+            <br />
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        }
+
     </div>
     <div class="col-md-4">
         <h2>Schedule Off-Time</h2>
-        <p>Going out of town? Need to skip a week? Schedule time off and don't get charged for a pickup you don't need!</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        @if (!User.Identity.IsAuthenticated)
+        {     
+              <p>Going out of town? Need to skip a week? With a registered account, you are able to schedule time off so you don't get charged for a pickup you don't need!</p>
+        }
+ 
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Schedule time off so you don't get charged for a pickup you don't need!</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        }
+
     </div>
 </div>

@@ -41,6 +41,11 @@
             @Html.DisplayFor(modelItem => item.ZipCode)
         </td>
         <td>
+            @Html.ActionLink("Complete", "Complete", new { id=item.AddressId}) 
+
+
+
+
             @Html.ActionLink("Edit", "Edit", new { id=item.AddressId }) |
             @Html.ActionLink("Details", "Details", new { id=item.AddressId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.AddressId })

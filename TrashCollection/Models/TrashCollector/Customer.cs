@@ -18,7 +18,7 @@ namespace TrashCollection.Models.TrashCollector
         public string EmailAddress { get; set; }
         public string PickUpDay { get; set; }
 
-
+    
         public int AddressId { get; set; }
         public Address Address { get; set; }
 
