@@ -7,7 +7,7 @@
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
@@ -49,12 +49,50 @@
             @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
         </div>
     </div>
+    @{ 
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "Monday",
+            Value = "Monday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Tuesday",
+            Value = "Tuesday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Wednesday",
+            Value = "Wednesday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Thursday",
+            Value = "Thursday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Friday",
+            Value = "Friday"
+        });
+
+    }
     <div class="form-group">
         @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PickUpDay, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.PickUpDay, listItems, "--Select Pick Up Day--" })
         </div>
     </div>
+
+
+
+
+
+
+
+
+
     <div class="form-group">
         @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
