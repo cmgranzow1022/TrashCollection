@@ -40,6 +40,7 @@ namespace TrashCollection.Controllers
         public ActionResult Profile()
         {
             ViewBag.Message = "Profile Information";
+            
 
             return View();
         }
