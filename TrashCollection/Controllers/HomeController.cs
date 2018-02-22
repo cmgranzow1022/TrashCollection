@@ -17,14 +17,14 @@ namespace TrashCollection.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This company does amazing things.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Have Questions? Please contact us!";
+            ViewBag.Message = "Have Questions? Please contact us.";
 
             return View();
         }
@@ -39,6 +39,11 @@ namespace TrashCollection.Controllers
                 return View();
         }
 
+        public ActionResult RatesAndServices()
+        {
+            ViewBag.Message = "We do great things - check it out!";
+            return View();
+        }
 
     }
 }

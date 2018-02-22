@@ -315,6 +315,7 @@
     <Content Include="Views\RouteView\Details.cshtml" />
     <Content Include="Views\RouteView\Edit.cshtml" />
     <Content Include="Views\RouteView\Index.cshtml" />
+    <Content Include="Views\Home\RatesAndServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
