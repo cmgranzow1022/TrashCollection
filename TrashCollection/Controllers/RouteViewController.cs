@@ -58,7 +58,7 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.CustomerId);
             return View(routeViewModel);
         }
 
@@ -74,7 +74,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.CustomerId);
             return View(routeViewModel);
         }
 
@@ -91,7 +91,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.Customerid);
+            ViewBag.Customerid = new SelectList(db.Customers, "CustomerId", "FirstName", routeViewModel.CustomerId);
             return View(routeViewModel);
         }
 

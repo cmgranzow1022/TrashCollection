@@ -13,31 +13,52 @@
     </style>
 </head>
 <body>
-    <center>
-        <h3>Map for Daily Routes</h3>
-    </center>
-    <div id="map"></div>
-    <script>
-        function initMap() {
-            
-            
-            var uluru = { lat: -25.363, lng: 131.044 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=KEYGOESHERE&callback=initMap">
-    </script>
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <br />
+    
+    @using (Html.BeginForm())
+    {
+        <p>
+            ZipCode: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+    <table>
+        <tr>
+            <center>
+                <h3>Map for Daily Routes</h3>
+            </center>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+
+
+                    var uluru = { lat: -25.363, lng: 131.044 };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 4,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                }
+
+
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=KEYGOESHERE&callback=initMap">
+            </script>
 </body>
 
+<body>
+
+</body>
 </html>
+
 
 
 

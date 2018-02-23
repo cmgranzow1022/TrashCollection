@@ -45,5 +45,22 @@ namespace TrashCollection.Controllers
             return View();
         }
 
+        public ActionResult ChangePickUpDay()
+        {
+
+            ViewBag.Message = "Life is busy and routines change, but we are flexible.";
+            return View();
+        }
+
+        public ActionResult ScheduleVacation()
+        {
+            ViewBag.Message = "Going out of town? Save us a trip and we'll save you some money!";
+            return View();
+        }
+
+        public ActionResult Billing()
+        {
+            return View();
+        }
     }
 }

@@ -121,6 +121,12 @@ namespace TrashCollection.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET : Customers/AddVacation
+        public ActionResult AddVacation()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

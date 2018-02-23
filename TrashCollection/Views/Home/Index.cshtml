@@ -5,7 +5,7 @@
 
 <div class="jumbotron">
     <h1>Trash Collection</h1>
-    <p class="lead">A scheduling service for weekly trash removal.</p>
+    <p class="lead">A service for weekly trash removal.</p>
     @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
@@ -24,7 +24,7 @@
             <p>
                 View and pay monthly trash collection invoice. Select one-time payment or auto-pay.
             </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <p> @Html.ActionLink("Go To Billing", "Billing", "Home")</p>
         }
 
     </div>
@@ -38,7 +38,7 @@
         {     
             <p>Update the day of the week for scheduled trash pick-up.</p>
             <br />
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            <p> @Html.ActionLink("Update Day", "ChangePickUpDay", "Home")</p>
         }
 
     </div>
@@ -52,7 +52,7 @@
         @if (User.Identity.IsAuthenticated)
         {
             <p>Schedule time off so you don't get charged for a pickup you don't need!</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            <p> @Html.ActionLink("Submit Vacation", "ScheduleVacation", "Home")</p>
         }
 
     </div>

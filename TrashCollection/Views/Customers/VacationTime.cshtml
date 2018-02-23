@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "VacationTime"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VacationTime</title>
+</head>
+<body>
+    <div> 
+        Let us know when you will be gone.
+    </div>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:Calendar ID="datepicker" runat="server" visible="false"></asp:Calendar>
+        </div>
+        <asp:TextBox id="txtdtp" runat="server"></asp:TextBox>
+    <asp:LinkButton id="linkpickdate" runat="server" OnClick="linkpickdate_Click">Get Date</asp:LinkButton>
+    </form>
+
+
+</body>
+</html>
