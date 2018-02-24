@@ -41,7 +41,6 @@ namespace TrashCollection.Controllers
         //GET: Customers/Create
         public ActionResult Create()
         {
-  
             return View();
         }
 
@@ -54,6 +53,7 @@ namespace TrashCollection.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.UserId = User.Identity.GetUserId();
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,21 +77,20 @@ namespace TrashCollection.Controllers
         }
 
         // POST: Customers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,AddressId")] Customer customer)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(customer).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.A);
-        //    return View(customer);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,PickUpDay,Street,City,State,ZipCode,UserId")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(customer);
+        }
 
         // GET: Customers/Delete/5
         public ActionResult Delete(int? id)
@@ -128,7 +127,7 @@ namespace TrashCollection.Controllers
         //GET : Customers/Profile
         public ActionResult Profile()
         {
-            string userProfile = User.Identity.GetUserId();
+            string userProfile= User.Identity.GetUserId();
             Customer customerProfile = (from cust in db.Customers where cust.UserId == userProfile select cust).FirstOrDefault();
             if(customerProfile == null)
             {

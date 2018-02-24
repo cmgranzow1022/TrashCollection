@@ -48,9 +48,22 @@ namespace TrashCollection.Controllers
         public ActionResult ChangePickUpDay()
         {
 
-            ViewBag.Message = "Life is busy and routines change, but we are flexible.";
+            ViewBag.Message = "We understand that life is busy and routines can change.";
             return View();
         }
+        [HttpPost]
+        public ActionResult ChangePickUpDay(CustomersController customer)
+        {
+            ViewBag.Message = "Your pickup day has been updated!";
+
+            return View("RedirectToHome");
+        }
+
+        //public ActionResult RedirectToHomePage()
+        //{
+
+        //    return View("Index","Home");
+        //}
 
         public ActionResult ScheduleVacation()
         {

@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Message</h2>
+<html>
+<head>
+    <meta http-equiv="Refresh" content="5; @Url.Action("Index","Home")">
+</head>
+
+<body>
+    <p>You will be redirected to the home page in five seconds.</p>
+</body>
+
+</html>
+

@@ -204,13 +204,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\TCMigrations\201802231350034_update tables.cs" />
-    <Compile Include="Migrations\TCMigrations\201802231350034_update tables.Designer.cs">
-      <DependentUpon>201802231350034_update tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TCMigrations\201802232103220_deleted table.cs" />
-    <Compile Include="Migrations\TCMigrations\201802232103220_deleted table.Designer.cs">
-      <DependentUpon>201802232103220_deleted table.cs</DependentUpon>
+    <Compile Include="Migrations\TCMigrations\201802241556178_update tables again.cs" />
+    <Compile Include="Migrations\TCMigrations\201802241556178_update tables again.Designer.cs">
+      <DependentUpon>201802241556178_update tables again.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,6 +303,7 @@
     <Content Include="Views\Home\ScheduleVacation.cshtml" />
     <Content Include="Views\Home\Billing.cshtml" />
     <Content Include="Views\Customers\Profile.cshtml" />
+    <Content Include="Views\Home\RedirectToHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -316,13 +313,9 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802231350034_update tables.resx">
-      <DependentUpon>201802231350034_update tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802232103220_deleted table.resx">
-      <DependentUpon>201802232103220_deleted table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802241556178_update tables again.resx">
+      <DependentUpon>201802241556178_update tables again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
