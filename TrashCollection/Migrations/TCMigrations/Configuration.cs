@@ -21,13 +21,7 @@ namespace TrashCollection.Migrations.TCMigrations
         protected override void Seed(TrashCollection.Models.ApplicationDbContext context)
         {
 
-            Address[] addresses = DummyData.getAddress().ToArray();
-
-            for (int i = 0; i < addresses.Length; i++)
-            {
-                context.Addresses.AddOrUpdate(addresses[i]);
-                context.SaveChanges();
-            }
+         
 
             Customer[] customers = DummyData.getCustomers(context).ToArray();
             for (int i = 0; i < customers.Length; i++)

@@ -14,6 +14,10 @@ namespace TrashCollection.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //GET: 
+
+
+
         // GET: RouteView
         public ActionResult Index()
         {

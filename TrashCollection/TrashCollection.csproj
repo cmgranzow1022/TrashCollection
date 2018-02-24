@@ -196,7 +196,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,12 +208,15 @@
     <Compile Include="Migrations\TCMigrations\201802231350034_update tables.Designer.cs">
       <DependentUpon>201802231350034_update tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\TCMigrations\201802232103220_deleted table.cs" />
+    <Compile Include="Migrations\TCMigrations\201802232103220_deleted table.Designer.cs">
+      <DependentUpon>201802232103220_deleted table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TrashCollector\RouteViewModel.cs" />
-    <Compile Include="Models\TrashCollector\Address.cs" />
     <Compile Include="Models\TrashCollector\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -318,6 +320,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\TCMigrations\201802231350034_update tables.resx">
       <DependentUpon>201802231350034_update tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802232103220_deleted table.resx">
+      <DependentUpon>201802232103220_deleted table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,7 +20,10 @@ namespace TrashCollection.Data
                 FirstName = "Christine",
                 LastName= "Granzow",
                 PhoneNumber= "414-456-7890",
-                AddressId = 1,
+                Street = "2835 S Tammy Ln",
+                City = "New Berlin",
+                State = "WI",
+                ZipCode = "53151",
             },
             new Customer()
             {
@@ -28,7 +31,10 @@ namespace TrashCollection.Data
                 FirstName = "Katie",
                 LastName= "Steingraber",
                 PhoneNumber= "414-234-2345",
-                AddressId = 2,
+                Street = "1022 S 121st St",
+                City = "West Allis",
+                State = "WI",
+                ZipCode = "53214",
             },
             new Customer()
             {
@@ -36,95 +42,16 @@ namespace TrashCollection.Data
                 FirstName = "Richard",
                 LastName= "Hintz",
                 PhoneNumber= "262-456-6544",
-                AddressId = 3,
+                Street = "W5551 Colin St",
+                City = "Appleton",
+                State = "WI",
+                ZipCode = "54915", 
             },
             };
             return customers;
         }
 
-        public static List<Address> getAddress()
-        {
-            List<Address> addresses = new List<Address>()
-            {
-                new Address
-                {
-                    AddressId = 1,
-                    Street = "1022 S 121st St",
-                    City = "West Allis",
-                    State = "WI",
-                    ZipCode = "53214",
-                },
-                new Address
-                {
-                    AddressId = 2,
-                    Street = "W5551 Colin St",
-                    City = "Appleton",
-                    State = "WI",
-                    ZipCode = "54915",
-                },
-                new Address
-                {
-                    AddressId = 3,
-                    Street = "2835 S Tammy Ln",
-                    City = "New Berlin",
-                    State = "WI",
-                    ZipCode = "53151",
-                },
-              };
-            return addresses;
-        }
+
+             
     }
 }
-
-
-
-//context.Addresses.AddOrUpdate(x => x.AddressId,
-//            new Address()
-//{
-//    AddressId = 1,
-//                Street = "1022 S 121st St",
-//                City = "West Allis",
-//                State = "WI",
-//                ZipCode = 53214,
-//            },
-//            new Address()
-//{
-//    AddressId = 2,
-//                Street = "W5551 Colin St",
-//                City = "Appleton",
-//                State = "WI",
-//                ZipCode = 54915,
-//            },
-//            new Address()
-//{
-//    AddressId = 3,
-//                Street = "2835 S Tammy Ln",
-//                City = "New Berlin",
-//                State = "WI",
-//                ZipCode = 53151,
-//            }
-//            );
-
-//            context.Customers.AddOrUpdate(x => x.AddressId,
-//            new Customer()
-//{
-//    FirstName = "Christine",
-//                LastName = "Granzow",
-//                PhoneNumber = "414-456-7890",
-//                AddressId = 1,
-//            },
-//            new Customer()
-//{
-//    FirstName = "Katie",
-//                LastName = "Steingraber",
-//                PhoneNumber = "414-234-2345",
-//                AddressId = 2,
-//            },
-//            new Customer()
-//{
-//    FirstName = "Richard",
-//                LastName = "Hintz",
-//                PhoneNumber = "262-456-6544",
-//                AddressId = 3,
-//            }
-//            ).FirstorDefault();

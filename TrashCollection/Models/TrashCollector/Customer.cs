@@ -18,10 +18,10 @@ namespace TrashCollection.Models.TrashCollector
         public string EmailAddress { get; set; }
         public string PickUpDay { get; set; }
 
-    
-        public int AddressId { get; set; }
-        public Address Address { get; set; }
-
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }

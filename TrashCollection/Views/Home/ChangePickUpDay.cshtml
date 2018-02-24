@@ -1,8 +1,63 @@
-﻿@{
+﻿@model TrashCollection.Models.TrashCollector.Customer
+@{
     ViewBag.Title = "Change Pick-Up Day";
 }
 <h2>@ViewBag.Title</h2>
 <h4>@ViewBag.Message</h4>
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FirstName);
+    @Html.HiddenFor(model => model.LastName);
+    @Html.HiddenFor(model => model.PhoneNumber);
+
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Monday",
+        Value = "Monday"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Tuesday",
+        Value = "Tuesday"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Wednesday",
+        Value = "Wednesday"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Thursday",
+        Value = "Thursday"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Friday",
+        Value = "Friday"
+    });
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.PickUpDay, listItems, "--Select Pick Up Day--", new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 
 
 
