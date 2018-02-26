@@ -9,6 +9,29 @@
  @*try to add calendar*@
 <p> What day does your vacation end? </p> @*try to add calendar*@
 
+@* // add vacation time to database  where appropriate
+    <div class="form-group">
+        @Html.LabelFor(m => m.VacationStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.VacationStartDate, new { htmlAttributes = new { @class = "form-control", @id = "date-picker" } })
+            @Html.ValidationMessageFor(m => m.VacationStartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.VacationEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.VacationEndDate, new { htmlAttributes = new { @class = "form-control", @id = "date-picker2" } })
+            @Html.ValidationMessageFor(m => m.VacationEndDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+*@
+
+
 @*submit button*@
 
 
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" class="btn btn-default" value="Schedule Time Off" />
+    </div>
+</div>

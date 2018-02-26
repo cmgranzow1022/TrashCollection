@@ -1,0 +1,181 @@
+﻿@model IEnumerable<TrashCollection.Models.TrashCollector.Customer>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>DailyRouteMap</title> 
+</head>
+<body>
+    <center>
+        <h3>Map for Daily Routes</h3>
+    </center>
+    <div id="map"></div>
+    <script>
+            function initMap() {
+                // More
+            }
+            var broadway = {
+                info: '<strong>The Gig</strong><br>\
+					1132 E Wright St, Milwaukee, WI 53212<br>\
+					<a href="https://goo.gl/maps/ZkuZwuiHn812">Get Directions</a>',
+                lat: 43.063935,
+                long: -87.896871
+            };
+            var locations = [
+  [broadway.info, broadway.lat, broadway.long, 0],
+  [belmont.info, belmont.lat, belmont.long, 1],
+  [sheridan.info, sheridan.lat, sheridan.long, 2],
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: new google.maps.LatLng(43.063935, -87.896871),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var infowindow = new google.maps.InfoWindow({});
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+            function initMap() {
+
+                var cg = {
+                    info: '<strong>1</strong><br>\
+					1022 S 121st St, West Allis, WI 53214<br>\
+					<a href="https://goo.gl/maps/ZkuZwuiHn812">Get Directions</a>',
+                    lat: 43.020484,
+                    long: -88.063190
+                };
+
+                var mg = {
+                    info: '<strong>2</strong><br>\
+					1426 S 94th St, West Allis, WI 53214<br>\
+					<a href="https://goo.gl/maps/xnX2uKvajnK2">Get Directions</a>',
+                    lat: 43.015845,
+                    long: -88.029186
+                };
+
+                var cw = {
+                    info: '<strong>Cool Waters</strong><br>\r\
+					1028 S 103rd St, West Allis, WI 53214<br>\
+					<a href="https://goo.gl/maps/mCPjun8R7Pp">Get Directions</a>',
+                    lat: 43.020403,
+                    long: -88.040684
+                };
+
+                var locations = [
+                  [cg.info, cg.lat, cg.long, 0],
+                  [mg.info, mg.lat, mg.long, 1],
+                  [cw.info, cw.lat, cw.long, 2],
+                ];
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: new google.maps.LatLng(43.011251, -88.049206),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+                var infowindow = new google.maps.InfoWindow({});
+
+                var marker, i;
+
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        map: map
+                    });
+
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                        return function () {
+                            infowindow.setContent(locations[i][0]);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                }
+            }
+    </script>
+    <script src="script.js"> </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=KEYHERE&callback=initMap"> </script>
+    @*<script>
+                function initMap() {
+
+                    var uluru = { lat: -25.363, lng: 131.044 };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 4,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                }
+    </script>*@
+
+    @*<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=KEYGOESHERE&callback=initMap">
+    </script>*@
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZipCode)
+                </td>
+
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
+

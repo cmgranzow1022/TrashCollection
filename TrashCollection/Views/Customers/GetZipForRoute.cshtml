@@ -1,0 +1,36 @@
+﻿@model TrashCollection.Models.TrashCollector.Customer
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "GetZipForRoute";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @*<style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>*@
+</head>
+<body>
+    <div>
+    <br />
+    <h3>What area will you be doing pick ups for today?</h3>
+    @using (Html.BeginForm("GetZipForRoute","Customers", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <p>
+            ZipCode: @Html.TextBoxFor(z => z.ZipCode, new { @class = "form-control" })
+            <input type="submit" value="Search" />
+        </p>
+    }
+    </div>
+</body>
+</html>
+
+
+
+

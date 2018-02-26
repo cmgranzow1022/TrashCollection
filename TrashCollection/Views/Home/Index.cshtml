@@ -9,51 +9,89 @@
     @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Account Balance</h2>
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <p>
-                You can view and pay monthly trash collection invoice. You can select a one time payment or a monthly automatic payment plan with a registered account.
-            </p>
-        }
+@if (User.IsInRole("Employee"))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Daily Route</h2>
+              
+              <p>Map your route based on zip code.</p>
+              <p class="btn btn-default"> @Html.ActionLink("Get Route","GetZipForRoute", "Customers")</p>
      
-        @if (User.Identity.IsAuthenticated)
-        {
-            <p>
-                View and pay monthly trash collection invoice. Select one-time payment or auto-pay.
-            </p>
-            <p> @Html.ActionLink("Go To Billing", "Billing", "Home")</p>
-        }
+        </div>
 
-    </div>
-    <div class="col-md-4">
-        <h2>Change Pick-up Day</h2>
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <p>Routines can change. If you realize that Tuesday works better than Thursday, just login to change the day of the week for scheduled trash pick-up.</p>
-        }
-        @if (User.Identity.IsAuthenticated)
-        {     
-            <p>Update the day of the week for scheduled trash pick-up.</p>
-            <br />
-            <p> @Html.ActionLink("Update Day", "ChangePickUpDay", "Home")</p>
-        }
-
-    </div>
-    <div class="col-md-4">
-        <h2>Schedule Off-Time</h2>
-        @if (!User.Identity.IsAuthenticated)
-        {     
-              <p>Going out of town? Need to skip a week? With a registered account, you are able to schedule time off so you don't get charged for a pickup you don't need!</p>
-        }
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Time Sheet</h2>
  
-        @if (User.Identity.IsAuthenticated)
-        {
-            <p>Schedule time off so you don't get charged for a pickup you don't need!</p>
-            <p> @Html.ActionLink("Submit Vacation", "ScheduleVacation", "Home")</p>
-        }
+                    <p>Everybody likes getting paid!</p>
+                    <p class="btn btn-default"> @Html.ActionLink("Record Time", "Billing", "Home")</p>
+                
+            </div>
+            </div>
 
-    </div>
-</div>
+        </div>
+
+
+
+
+
+
+
+
+
+            }
+            else
+            {
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Account Balance</h2>
+                    @if (!User.Identity.IsAuthenticated)
+                {
+                        <p>
+                            You can view and pay monthly trash collection invoice. You can select a one time payment or a monthly automatic payment plan with a registered account.
+                        </p>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                {
+                        <p>
+                            View and pay monthly trash collection invoice. Select one-time payment or auto-pay.
+                        </p>
+                        <p class="btn btn-default"> @Html.ActionLink("Go To Billing", "Billing", "Home")</p>
+                    }
+
+                </div>
+                <div class="col-md-4">
+                    <h2>Change Pick-up Day</h2>
+                    @if (!User.Identity.IsAuthenticated)
+                {
+                        <p>Routines can change. If you realize that Tuesday works better than Thursday, just login to change the day of the week for scheduled trash pick-up.</p>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                {
+
+                        <p>Update the day of the week for scheduled trash pick-up.</p>
+                        <br />
+                        <p class="btn btn-default">@Html.ActionLink("Update Day", "ChangePickUpDay", "Home")</p>
+                    }
+
+
+
+                </div>
+                <div class="col-md-4">
+                    <h2>Schedule Off-Time</h2>
+                    @if (!User.Identity.IsAuthenticated)
+                {
+                        <p>Going out of town? Need to skip a week? With a registered account, you are able to schedule time off so you don't get charged for a pickup you don't need!</p>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                {
+                        <p>Schedule time off so you don't get charged for a pickup you don't need!</p>
+                        <p class="btn btn-default"> @Html.ActionLink("Submit Vacation", "ScheduleVacation", "Home")</p>
+                    }
+
+                </div>
+            </div>
+            }

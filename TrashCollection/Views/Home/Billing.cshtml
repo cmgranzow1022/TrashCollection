@@ -1,10 +1,49 @@
-﻿@{
+﻿@model TrashCollection.Models.TrashCollector.Customer
+@{
     ViewBag.Title = "Trash Collection Invoice";
 }
 <h2>@ViewBag.Title</h2>
 <h4>@ViewBag.Message</h4>
 
-<p> Display number of pick ups in scheduling period and amount due.</p>
-@*submit button*@
+@using (Html.BeginForm())
+{
+    List<SelectListItem>
+    listItems = new List<SelectListItem>
+        ();
+        listItems.Add(new SelectListItem
+        {
+            Text = "12/01/2017 - 12/31/2017",
+            Value = "12/02/2017 - 12/31-2017"
+        });
+         listItems.Add(new SelectListItem
+        {
+            Text = "01/01/2018 - 01/31/2018",
+            Value = "01/01/2018 - 01/31-2018"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "02/01/2018 - 02/28/2018",
+            Value = "02/02/2018 - 02/28/2018"
+        });
 
+
+        @*<div class="form-group">
+            @Html.LabelFor(m => m.First, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.FirstName, listItems, "--Select Statement--", new { @class = "form-control" })
+            </div>
+        </div>*@
+    }
+
+
+        <p> Display number of pick ups in scheduling period and amount due.</p>
+        <p> </p>
+
+
+        @*submit button// Stripe API*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Pay Now" />
+            </div>
+        </div>
 

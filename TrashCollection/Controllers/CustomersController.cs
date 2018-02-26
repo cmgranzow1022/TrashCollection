@@ -73,6 +73,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
             return View(customer);
         }
 
@@ -89,6 +90,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
             return View(customer);
         }
 
@@ -117,6 +119,8 @@ namespace TrashCollection.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
         //GET : Customers/AddVacation
         public ActionResult AddVacation()
@@ -147,6 +151,42 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View(customer);
+        }
+
+        public ActionResult GetZipForRoute()
+        {
+            return View();
+        }
+
+       [HttpPost, ActionName("GetZipForRoute")]
+       public ActionResult GetZipForRoute([Bind(Include = "ZipCode")]Customer customer)
+        {
+            return RedirectToAction("DailyRouteMap", customer);
+        }
+
+        public ActionResult DailyRouteMap(Customer customer)
+        {
+            var today = DateTime.Now;
+            string zipCode = customer.ZipCode;
+
+            string getToday = today.DayOfWeek.ToString();
+            var addressList = (from cust in db.Customers where cust.ZipCode == zipCode select cust).ToList();
+            var todaysPickUps = (from p in db.Customers where p.PickUpDay == getToday select p).ToList();
+
+            List<Customer> todaysCustomerPickUps = new List<Customer>();
+
+            for (int a = 0; a < addressList.Count; a++)
+            {
+                for (int c = 0; c < todaysPickUps.Count; c++)
+                {
+                    if (addressList[a].CustomerId == todaysPickUps[c].CustomerId)
+                    {
+                        todaysCustomerPickUps.Add(addressList[a]);
+                        break;
+                    }
+                }
+            }
+            return View(todaysCustomerPickUps);
         }
 
         protected override void Dispose(bool disposing)

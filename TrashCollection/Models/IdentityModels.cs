@@ -33,6 +33,6 @@ namespace TrashCollection.Models
         }
         public DbSet<Customer> Customers { get; set; }
 
-        public System.Data.Entity.DbSet<TrashCollection.Models.RouteViewModel> RouteViewModels { get; set; }
+       
     }
 }
