@@ -203,17 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\TCMigrations\201802241556178_update tables again.cs" />
-    <Compile Include="Migrations\TCMigrations\201802241556178_update tables again.Designer.cs">
-      <DependentUpon>201802241556178_update tables again.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TCMigrations\201802260004088_removed routeview.cs" />
-    <Compile Include="Migrations\TCMigrations\201802260004088_removed routeview.Designer.cs">
-      <DependentUpon>201802260004088_removed routeview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TCMigrations\201802260335356_adding vacation time.cs" />
-    <Compile Include="Migrations\TCMigrations\201802260335356_adding vacation time.Designer.cs">
-      <DependentUpon>201802260335356_adding vacation time.cs</DependentUpon>
+    <Compile Include="Migrations\TCMigrations\201802261627247_updated tables.cs" />
+    <Compile Include="Migrations\TCMigrations\201802261627247_updated tables.Designer.cs">
+      <DependentUpon>201802261627247_updated tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -295,14 +287,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\RatesAndServices.cshtml" />
     <Content Include="Views\Customers\VacationTime.cshtml" />
-    <Content Include="Views\Home\ChangePickUpDay.cshtml" />
-    <Content Include="Views\Home\ScheduleVacation.cshtml" />
+    <Content Include="Views\Customers\ChangePickUpDay.cshtml" />
+    <Content Include="Views\Customers\ScheduleVacation.cshtml" />
     <Content Include="Views\Home\Billing.cshtml" />
-    <Content Include="Views\Customers\Profile.cshtml" />
-    <Content Include="Views\Home\RedirectToHome.cshtml" />
+    <Content Include="Views\Customers\ProfileAccount.cshtml" />
+    <Content Include="Views\Customers\RedirectToHome.cshtml" />
     <Content Include="Views\Customers\DailyRouteMap.cshtml" />
     <Content Include="Views\Home\TimeSheet.cshtml" />
     <Content Include="Views\Home\PTORequest.cshtml" />
+    <Content Include="Views\Home\RedirectToHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -312,15 +305,10 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802241556178_update tables again.resx">
-      <DependentUpon>201802241556178_update tables again.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802260004088_removed routeview.resx">
-      <DependentUpon>201802260004088_removed routeview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\TCMigrations\201802260335356_adding vacation time.resx">
-      <DependentUpon>201802260335356_adding vacation time.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802261627247_updated tables.resx">
+      <DependentUpon>201802261627247_updated tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

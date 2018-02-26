@@ -49,7 +49,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,PickUpDay,Street,State,ZipCode")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,PickUpDay,Street,State,ZipCode,UserId,VacationStart,VacationEnd")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,PickUpDay,Street,City,State,ZipCode,UserId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,PickUpDay,Street,City,State,ZipCode,UserId,VacationStart,VacationEnd")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
+            //ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
             return View(customer);
         }
 
@@ -128,35 +128,64 @@ namespace TrashCollection.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddVacation(CustomersController customer)
+        public ActionResult AddVacation([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,Street,City,State,ZipCode,PickUpDay,UserId,VacationStart,VacationEnd")] Customer customer)
         {
+
+            db.Entry(customer).State = EntityState.Modified;
+            db.SaveChanges();
             ViewBag.Message = "Your vacation dates have been submitted. Enjoy your time away!";
             return View("RedirectToHome");
         }
 
         //GET : Customers/Profile
-        public ActionResult Profile()
+        public ActionResult ProfileAccount()
         {
             string userProfile= User.Identity.GetUserId();
-            Customer customerProfile = (from cust in db.Customers where cust.UserId == userProfile select cust).FirstOrDefault();
-            if(customerProfile == null)
+            Customer customer = (from cust in db.Customers where cust.UserId == userProfile select cust).FirstOrDefault();
+            if(customer == null)
             {
                 return View();
             }
-            return View(customerProfile);
+            return View(customer);
         }
 
         //POST : Customers/Profile
         [HttpPost]
-        public ActionResult Profile([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,Street,City,State,ZipCode,PickUpDay,UserId")] Customer customer)
+        public ActionResult ProfileAccount([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,Street,City,State,ZipCode,PickUpDay,UserId,VacationStart,VacationEnd")] Customer customer)
         {
-            if (ModelState.IsValid)
-            {
+        
                 db.Entry(customer).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", "Home");
-            }
-            return View(customer);
+                //db.SaveChanges();
+                return View("RedirectToHome");
+    
+        }
+        public ActionResult ChangePickUpDay()
+        {
+
+            ViewBag.Message = "We understand that life is busy and routines can change.";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePickUpDay([Bind(Include = "CustomerId,FirstName,LastName,PhoneNumber,EmailAddress,Street,City,State,ZipCode,PickUpDay,UserId,VacationStart,VacationEnd")] Customer customer)
+        {
+         
+                db.Entry(customer).State = EntityState.Modified;
+                //db.SaveChanges()  ;
+                return View("RedirectToHome");
+        
+        }
+
+        public ActionResult ScheduleVacation()
+        {
+            ViewBag.Message = "Going out of town? Save us a trip and we'll save you some money!";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ScheduleVacation(CustomersController customer)
+        {
+            ViewBag.Vacation = "Your vacation time has been saved. You will not be charged for pickups during this time.";
+            return View("RedirectToHome");
         }
 
         public ActionResult GetZipForRoute()

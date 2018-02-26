@@ -9,6 +9,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.CustomerId);
     @Html.HiddenFor(model => model.FirstName);
     @Html.HiddenFor(model => model.LastName);
     @Html.HiddenFor(model => model.PhoneNumber);

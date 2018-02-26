@@ -7,13 +7,13 @@ namespace TrashCollection.Migrations.TCMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class removedrouteview : IMigrationMetadata
+    public sealed partial class updatedtables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedrouteview));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedtables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802260004088_removed routeview"; }
+            get { return "201802261627247_updated tables"; }
         }
         
         string IMigrationMetadata.Source

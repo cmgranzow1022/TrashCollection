@@ -25,7 +25,7 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Rates/Services", "RatesandServices", "Home")</li>
                     @if (User.IsInRole("Guest")){
-                    <li>@Html.ActionLink("Profile","Profile","Customers")</li>
+                    <li>@Html.ActionLink("Profile","ProfileAccount","Customers")</li>
                     }
                     @*@if (User.IsInRole("Employee")||User.IsInRole("Admin"))
                     {

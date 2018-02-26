@@ -33,9 +33,9 @@
                 long: -87.896871
             };
             var locations = [
-  [broadway.info, broadway.lat, broadway.long, 0],
-  [belmont.info, belmont.lat, belmont.long, 1],
-  [sheridan.info, sheridan.lat, sheridan.long, 2],
+  [cg.info, cg.lat, cg.long, 0],
+  [mg.info, mg.lat, mg.long, 1],
+  [mp.info, mp.lat, mp.long, 2],
             ];
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 13,
@@ -77,8 +77,8 @@
                     long: -88.029186
                 };
 
-                var cw = {
-                    info: '<strong>Cool Waters</strong><br>\r\
+                var mp = {
+                    info: '<strong>3</strong><br>\r\
 					1028 S 103rd St, West Allis, WI 53214<br>\
 					<a href="https://goo.gl/maps/mCPjun8R7Pp">Get Directions</a>',
                     lat: 43.020403,
@@ -118,24 +118,7 @@
     </script>
     <script src="script.js"> </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=KEYHERE&callback=initMap"> </script>
-    @*<script>
-                function initMap() {
 
-                    var uluru = { lat: -25.363, lng: 131.044 };
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 4,
-                        center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                        position: uluru,
-                        map: map
-                    });
-                }
-    </script>*@
-
-    @*<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=KEYGOESHERE&callback=initMap">
-    </script>*@
 
 
     <table class="table">

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollection.Models;
+using TrashCollection.Models.TrashCollector;
 
 namespace TrashCollection.Controllers
 {
@@ -14,22 +16,18 @@ namespace TrashCollection.Controllers
         {
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "This company does amazing things.";
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Have Questions? Please contact us.";
 
             return View();
         }
-
-
         [HttpPost]
         public ActionResult Contact(string message)
         {
@@ -38,7 +36,6 @@ namespace TrashCollection.Controllers
 
                 return View();
         }
-
         public ActionResult RatesAndServices()
         {
             ViewBag.Message = "We do great things - check it out!";
@@ -48,9 +45,8 @@ namespace TrashCollection.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult TimeSheet(CustomersController customer)
+        public ActionResult TimeSheet(Customer customer)
         {
             ViewBag.Message = "Thank you - Your hours have been submitted!";
             return View("RedirectToHome");
@@ -60,7 +56,6 @@ namespace TrashCollection.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult PTORequest(CustomersController customer)
         {
@@ -68,36 +63,7 @@ namespace TrashCollection.Controllers
             return View("RedirectToHome");
         }
 
-        public ActionResult ChangePickUpDay()
-        {
 
-            ViewBag.Message = "We understand that life is busy and routines can change.";
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ChangePickUpDay(CustomersController customer)
-        {
-            ViewBag.Message = "Your pickup day has been updated!";
-            return View("RedirectToHome");
-        }
-
-        //public ActionResult RedirectToHomePage()
-        //{
-
-        //    return View("Index","Home");
-        //}
-
-        public ActionResult ScheduleVacation()
-        {
-            ViewBag.Message = "Going out of town? Save us a trip and we'll save you some money!";
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ScheduleVacation(CustomersController customer)
-        {
-            ViewBag.Vacation = "Your vacation time has been saved. You will not be charged for pickups during this time.";
-            return View("RedirectToHome");
-        }
 
         public ActionResult Billing()
         {
