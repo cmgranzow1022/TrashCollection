@@ -92,6 +92,12 @@ namespace TrashCollection.Controllers
             ViewBag.Message = "Going out of town? Save us a trip and we'll save you some money!";
             return View();
         }
+        [HttpPost]
+        public ActionResult ScheduleVacation(CustomersController customer)
+        {
+            ViewBag.Vacation = "Your vacation time has been saved. You will not be charged for pickups during this time.";
+            return View("RedirectToHome");
+        }
 
         public ActionResult Billing()
         {

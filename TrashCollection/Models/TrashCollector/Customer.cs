@@ -22,6 +22,8 @@ namespace TrashCollection.Models.TrashCollector
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public string VacationStart { get; set; }
+        public string VacationEnd { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }

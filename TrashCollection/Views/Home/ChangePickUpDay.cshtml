@@ -18,6 +18,8 @@
     @Html.HiddenFor(model => model.State);
     @Html.HiddenFor(model => model.ZipCode);
     @Html.HiddenFor(model => model.UserId);
+    @Html.HiddenFor(model => model.VacationEnd);
+    @Html.HiddenFor(model => model.VacationStart);
 
     List<SelectListItem> listItems = new List<SelectListItem>();
     listItems.Add(new SelectListItem

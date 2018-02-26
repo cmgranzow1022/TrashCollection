@@ -211,6 +211,10 @@
     <Compile Include="Migrations\TCMigrations\201802260004088_removed routeview.Designer.cs">
       <DependentUpon>201802260004088_removed routeview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\TCMigrations\201802260335356_adding vacation time.cs" />
+    <Compile Include="Migrations\TCMigrations\201802260335356_adding vacation time.Designer.cs">
+      <DependentUpon>201802260335356_adding vacation time.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TCMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\TCMigrations\201802260004088_removed routeview.resx">
       <DependentUpon>201802260004088_removed routeview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\TCMigrations\201802260335356_adding vacation time.resx">
+      <DependentUpon>201802260335356_adding vacation time.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

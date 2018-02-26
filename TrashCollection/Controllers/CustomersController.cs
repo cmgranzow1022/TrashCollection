@@ -127,6 +127,12 @@ namespace TrashCollection.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult AddVacation(CustomersController customer)
+        {
+            ViewBag.Message = "Your vacation dates have been submitted. Enjoy your time away!";
+            return View("RedirectToHome");
+        }
 
         //GET : Customers/Profile
         public ActionResult Profile()
