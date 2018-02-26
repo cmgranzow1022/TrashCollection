@@ -44,6 +44,29 @@ namespace TrashCollection.Controllers
             ViewBag.Message = "We do great things - check it out!";
             return View();
         }
+        public ActionResult TimeSheet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TimeSheet(CustomersController customer)
+        {
+            ViewBag.Message = "Thank you - Your hours have been submitted!";
+            return View("RedirectToHome");
+        }
+
+        public ActionResult PTORequest()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PTORequest(CustomersController customer)
+        {
+            ViewBag.Vacation = "Your request has been received and you will receive confirmation if your request is approved.";
+            return View("RedirectToHome");
+        }
 
         public ActionResult ChangePickUpDay()
         {
@@ -55,7 +78,6 @@ namespace TrashCollection.Controllers
         public ActionResult ChangePickUpDay(CustomersController customer)
         {
             ViewBag.Message = "Your pickup day has been updated!";
-
             return View("RedirectToHome");
         }
 

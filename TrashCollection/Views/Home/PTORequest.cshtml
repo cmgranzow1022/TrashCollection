@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PTORequest</title>
+</head>
+<body>
+    <h3>Enter the requested start and end date for your vacation.</h3>
+    <div>
+   
+@using (Html.BeginForm())
+{     
+
+            <p>
+                Start Date: @Html.TextBox("HoursWorked")
+                End Date: @Html.TextBox("HoursWorked")
+                <input type="submit" class="btn btn-default" value="Submit" />
+            </p>
+        }
+
+    </div>
+</body>
+</html>

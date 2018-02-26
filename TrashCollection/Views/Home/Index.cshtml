@@ -12,54 +12,42 @@
 @if (User.IsInRole("Employee"))
 {
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h2>Daily Route</h2>
               
               <p>Map your route based on zip code.</p>
               <p class="btn btn-default"> @Html.ActionLink("Get Route","GetZipForRoute", "Customers")</p>
-     
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h2>Time Sheet</h2>
  
                     <p>Everybody likes getting paid!</p>
-                    <p class="btn btn-default"> @Html.ActionLink("Record Time", "Billing", "Home")</p>
-                
+                    <p class="btn btn-default"> @Html.ActionLink("Record Time", "TimeSheet", "Home")</p>
             </div>
-            </div>
+            <div class="col-md-4">
+                <h2>PTO Requests</h2>
 
+                <p>Fill out form to request time off.</p>
+                <p class="btn btn-default"> @Html.ActionLink("Submit Request", "PTORequest", "Home")</p>
+            </div>
         </div>
 
-
-
-
-
-
-
-
-
-            }
-            else
-            {
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Account Balance</h2>
-                    @if (!User.Identity.IsAuthenticated)
+       
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Account Balance</h2>
+                @if (!User.Identity.IsAuthenticated)
                 {
-                        <p>
-                            You can view and pay monthly trash collection invoice. You can select a one time payment or a monthly automatic payment plan with a registered account.
-                        </p>
-                    }
-
-                    @if (User.Identity.IsAuthenticated)
+                <p>You can view and pay monthly trash collection invoice. You can select a one time payment or a monthly automatic payment plan with a registered account.</p>
+                }
+                @if (User.Identity.IsAuthenticated)
                 {
-                        <p>
-                            View and pay monthly trash collection invoice. Select one-time payment or auto-pay.
-                        </p>
-                        <p class="btn btn-default"> @Html.ActionLink("Go To Billing", "Billing", "Home")</p>
-                    }
+                <p>View and pay monthly trash collection invoice. Select one-time payment or auto-pay.</p>
+                <p class="btn btn-default"> @Html.ActionLink("Go To Billing", "Billing", "Home")</p>
+                 }
 
                 </div>
                 <div class="col-md-4">
